@@ -8,11 +8,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Java, Vermouth">
-    <meta name="description" content="public Main &amp;#123;
-  public static void main(String[] args) &amp;#123;
-    System.out.println(&amp;quot;6666&amp;quot;)
-  &amp;#125;
-&amp;#1">
+    <meta name="description" content="#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+using namespace std;
+
+const int N &amp;#x3D; ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -558,7 +560,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    18
+                    166
                 </div>
                 
 
@@ -593,11 +595,37 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-java" data-language="java"><code class="language-java">public Main &#123;
-  public static void main(String[] args) &#123;
-    System.out.println(&quot;6666&quot;)
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+const int N &#x3D; 1010;
+int a[N][N];
+int n, m, k;
+int s[N][N];
+
+int main()
+&#123;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
+    for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
+        for (int j &#x3D; 1; j &lt;&#x3D; m; j++) &#123;
+            cin &gt;&gt; a[i][j];
+        &#125;
+    &#125;
+    for (int i &#x3D; 1; i &lt;&#x3D;n; i++) &#123;
+        for (int j &#x3D; 1; j &lt;&#x3D; m; j++) &#123;
+           s[i][j] &#x3D; a[i][j] + s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1];
+        &#125;
+    &#125;
+    while (k --) &#123;
+        int x1, y1, x2, y2;
+        cin &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;
+        cout &lt;&lt; s[x2][y2] - s[x1 - 1][y2] - s[x2][y1 - 1] + s[x1 - 1][y1 - 1] &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 
@@ -1384,7 +1412,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">18</span>
+                        class="white-color">166</span>
             
             
             
