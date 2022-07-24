@@ -8,13 +8,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Java, Vermouth">
-    <meta name="description" content="#include &amp;lt;iostream&amp;gt;
-#include &amp;lt;cstring&amp;gt;
-#include &amp;lt;algorithm&amp;gt;
-
-using namespace std;
-
-const int N &amp;#x3D; ">
+    <meta name="description" content="public class QuickSort &amp;#123;
+    public static void quickSort(int[] arr,int low,int high)&amp;#123;
+        int i,j,temp,t;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -562,14 +558,14 @@ const int N &amp;#x3D; ">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-23
+                    2022-07-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    170
+                    247
                 </div>
                 
 
@@ -604,37 +600,52 @@ const int N &amp;#x3D; ">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;cstring&gt;
-#include &lt;algorithm&gt;
-
-using namespace std;
-
-const int N &#x3D; 1010;
-int a[N][N];
-int n, m, k;
-int s[N][N];
-
-int main()
-&#123;
-    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
-    for (int i &#x3D; 1; i &lt;&#x3D; n; i++) &#123;
-        for (int j &#x3D; 1; j &lt;&#x3D; m; j++) &#123;
-            cin &gt;&gt; a[i][j];
+                <pre class="line-numbers language-java" data-language="java"><code class="language-java">public class QuickSort &#123;
+    public static void quickSort(int[] arr,int low,int high)&#123;
+        int i,j,temp,t;
+        if(low&gt;high)&#123;
+            return;
+        &#125;
+        i&#x3D;low;
+        j&#x3D;high;
+        &#x2F;&#x2F;temp就是基准位
+        temp &#x3D; arr[low];
+ 
+        while (i&lt;j) &#123;
+            &#x2F;&#x2F;先看右边，依次往左递减
+            while (temp&lt;&#x3D;arr[j]&amp;&amp;i&lt;j) &#123;
+                j--;
+            &#125;
+            &#x2F;&#x2F;再看左边，依次往右递增
+            while (temp&gt;&#x3D;arr[i]&amp;&amp;i&lt;j) &#123;
+                i++;
+            &#125;
+            &#x2F;&#x2F;如果满足条件则交换
+            if (i&lt;j) &#123;
+                t &#x3D; arr[j];
+                arr[j] &#x3D; arr[i];
+                arr[i] &#x3D; t;
+            &#125;
+ 
+        &#125;
+        &#x2F;&#x2F;最后将基准为与i和j相等位置的数字交换
+         arr[low] &#x3D; arr[i];
+         arr[i] &#x3D; temp;
+        &#x2F;&#x2F;递归调用左半数组
+        quickSort(arr, low, j-1);
+        &#x2F;&#x2F;递归调用右半数组
+        quickSort(arr, j+1, high);
+    &#125;
+ 
+ 
+    public static void main(String[] args)&#123;
+        int[] arr &#x3D; &#123;10,7,2,4,7,62,3,4,2,1,8,9,19&#125;;
+        quickSort(arr, 0, arr.length-1);
+        for (int i &#x3D; 0; i &lt; arr.length; i++) &#123;
+            System.out.println(arr[i]);
         &#125;
     &#125;
-    for (int i &#x3D; 1; i &lt;&#x3D;n; i++) &#123;
-        for (int j &#x3D; 1; j &lt;&#x3D; m; j++) &#123;
-           s[i][j] &#x3D; a[i][j] + s[i - 1][j] + s[i][j - 1] - s[i - 1][j - 1];
-        &#125;
-    &#125;
-    while (k --) &#123;
-        int x1, y1, x2, y2;
-        cin &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;
-        cout &lt;&lt; s[x2][y2] - s[x1 - 1][y2] - s[x2][y1 - 1] + s[x1 - 1][y1 - 1] &lt;&lt; endl;
-    &#125;
-    return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1098,18 +1109,17 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/21/Java/">
+                <a href="/2022/07/23/C/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="C++">
                         
-                        <span class="card-title">Java</span>
+                        <span class="card-title">C++</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1119,33 +1129,16 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-23
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JavaSE/" class="post-category">
-                                    JavaSE
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Vermouth
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1218,7 +1211,7 @@ int main()
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
+        if (('' + selection).length < Number.parseInt('50')) {
             return;
         }
 
@@ -1431,7 +1424,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">170</span>
+                        class="white-color">247</span>
             
             
             
@@ -1499,7 +1492,7 @@ int main()
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1761,12 +1754,13 @@ var _hmt = _hmt || [];
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
     
+    
     <!-- 动态线条背景
     <script type="text/javascript"
         color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
     </script> -->
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var OriginTitile = document.title,
             st;
         document.addEventListener("visibilitychange", function () {
@@ -1775,7 +1769,7 @@ var _hmt = _hmt || [];
                 document.title = OriginTitile
             }, 3e3))
         })
-    </script>   
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-shizuku@latest/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":190,"hOffset":50,"vOffset":-5},"mobile":{"show":false}});</script></body>
+    </script>    -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/npm/live2d-widget-model-shizuku@latest/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":240,"hOffset":50,"vOffset":0},"mobile":{"show":true}});</script></body>
 
 </html>
